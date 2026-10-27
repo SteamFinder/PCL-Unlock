@@ -62,8 +62,11 @@ jobs:
     - name: Build
       run: msbuild "Plain Craft Launcher 2\Plain Craft Launcher 2.vbproj" -p:Configuration=${{ matrix.configuration }}
 
+    - name: Rename Build Output
+      run: Copy-Item -Path "Plain Craft Launcher 2\obj\${{ matrix.configuration }}\Plain Craft Launcher 2.exe" -Destination "Plain Craft Launcher 2\obj\${{ matrix.configuration }}\PCL-Unlock.exe" -Force
+
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v7
       with:
         name: ${{ matrix.configuration }} ${{ env.describe }}
-        path: Plain Craft Launcher 2\obj\${{ matrix.configuration }}\Plain Craft Launcher 2.exe
+        path: Plain Craft Launcher 2\obj\${{ matrix.configuration }}\PCL-Unlock.exe

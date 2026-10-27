@@ -7,6 +7,15 @@
     PanScroll="PanBack">
     <local:MyScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" x:Name="PanBack">
         <StackPanel x:Name="PanMain" Margin="25,10">
+            <local:MyCard Margin="0,15" Title="API 配置">
+                <StackPanel Margin="25,30,25,18">
+                    <TextBlock Text="CurseForge API Key" Margin="0,0,0,6" />
+                    <local:MyTextBox x:Name="TextCurseForgeAPIKey" local:SettingService.Key="SystemCurseForgeAPIKey" HintText="输入 CurseForge API Key" ToolTip="留空时使用 PCL_CURSEFORGE_API_KEY 环境变量（如果已设置）。" />
+                    <TextBlock Text="微软 Client ID" Margin="0,14,0,6" />
+                    <local:MyTextBox x:Name="TextMsOAuthClientId" local:SettingService.Key="SystemMsOAuthClientId" HintText="输入 Microsoft 应用 Client ID" ToolTip="留空时使用 PCL_MS_CLIENT_ID 环境变量（如果已设置）。" />
+                    <TextBlock Text="密钥会保存在本机设置中，不需要修改源代码。" Margin="0,10,0,0" Opacity="0.6" TextWrapping="Wrap" />
+                </StackPanel>
+            </local:MyCard>
             <local:MyCard Margin="0,15" Title="下载">
                 <StackPanel Margin="25,37,25,15">
                     <Grid>

@@ -1,11 +1,14 @@
 name: Build
 on:
   push:
-    branches:
-      - unlock
     paths:
       - 'Plain Craft Launcher 2/**'
       - '.github/workflows/**'
+  pull_request:
+    paths:
+      - 'Plain Craft Launcher 2/**'
+      - '.github/workflows/**'
+  workflow_dispatch:
 
 jobs:
   build:
@@ -57,7 +60,10 @@ jobs:
       run: dotnet restore PCLCS\PCLCS.csproj
 
     - name: Build
-      run: msbuild "Plain Craft Launcher 2\Plain Craft Launcher 2.vbproj" -p:Configuration=${{ matrix.configuration }} -p:AssemblyName=PCL-Unlock
+      run: msbuild "Plain Craft Launcher 2\Plain Craft Launcher 2.vbproj" -p:Configuration=${{ matrix.configuration }}
+
+    - name: Rename Build Output
+      run: Copy-Item -Path "Plain Craft Launcher 2\obj\${{ matrix.configuration }}\Plain Craft Launcher 2.exe" -Destination "Plain Craft Launcher 2\obj\${{ matrix.configuration }}\PCL-Unlock.exe" -Force
 
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v7

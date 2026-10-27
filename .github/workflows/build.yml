@@ -1,14 +1,11 @@
 name: Build
 on:
   push:
+    branches:
+      - unlock
     paths:
       - 'Plain Craft Launcher 2/**'
       - '.github/workflows/**'
-  pull_request:
-    paths:
-      - 'Plain Craft Launcher 2/**'
-      - '.github/workflows/**'
-  workflow_dispatch:
 
 jobs:
   build:

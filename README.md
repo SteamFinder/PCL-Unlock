@@ -9,7 +9,8 @@
 代码并不是实时更新的，它会在每次 PCL 发布更新时同步一次。<br/>
 非常感谢社区的大力支持！
 
-PCL-Unlock 修改了下载限制，同时支持手动设置 API key 和 Client Secret 等凭据。
+PCL-Unlock 修改了下载限制，同时支持手动设置 API Key 和 Client Secret 等凭据。
+下载请到[Github Actions 页面](https://github.com/SteamFinder/PCL-Unlock/actions)，点击最新的构建，下载产物。
 
 <br/>
 
